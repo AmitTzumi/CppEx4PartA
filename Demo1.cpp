@@ -49,8 +49,8 @@ int main() {
 	 	cout << "   caught exception: " << ex.what() << endl;  // prints a meaningful error message.
 	}
 
-
 	/* fly_direct action */
+	cout <<"YAY"<<endl;
 
 	player.fly_direct(City::Johannesburg);  // legal action: you discard the Johannesburg card and fly to Johannesburg.
 	try {
@@ -64,6 +64,7 @@ int main() {
 
 	player.drive(City::Kinshasa);    // legal action: you move from Johannesburg to a connected city.
 	cout << board[City::Kinshasa] << endl; // 2
+	//cout << board.cities[Kinshasa].level << endl;
 	player.treat(City::Kinshasa);    // legal action: you remove 1 disease cube from current city (1 cube remains).
 	cout << board[City::Kinshasa] << endl; // 1
 	player.treat(City::Kinshasa);    // legal action: you remove 1 disease cube from current city (0 cubes remain).
@@ -81,6 +82,7 @@ int main() {
 
 
 	/* fly_charter action */
+	
 
 	player.drive(City::Khartoum)
 	 .fly_charter(City::Sydney);  // legal action: you discard the Khartoum card and fly to Sydney.
@@ -98,6 +100,7 @@ int main() {
 	player.build();     // legal action: build a research station in LosAngeles.
 		// NOTE: you do not have the LosAngeles card, so for other roles this would throw an exception.
 		//       But for the OperationsExpert it is legal, since he may build a research station without a card.
+	cout << board;
 		
 
 
@@ -125,6 +128,7 @@ int main() {
 	 .take_card(City::Lima);
 
 	player.discover_cure(Color::Yellow); // legal action: you discard 5 yellow cards and discover a yellow cure.
+	cout << board;
 	try {
 		player.fly_direct(City::Miami); // illegal action: you discarded the Miami card to discover a cure, so you cannot use this card.
 	} catch (const exception& ex) {

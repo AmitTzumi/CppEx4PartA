@@ -5,26 +5,35 @@
 #include <sstream>
 #include <stdexcept>
 #include <map>
-#include "City_node.hpp"
+//#include "City_node.hpp"
+#include "Color.hpp"
 #include "City.hpp"
 #include <unordered_set>
-//using namespace std;
 
 namespace pandemic{
+
+    struct City_node {
+        City city;
+        Color color;
+        int level;
+        unordered_set <City> neighbors;
+        City_node(){
+            city = Algiers;
+            color = Red;
+            level=0;
+        }
+    };
+
     class Board{
         public:
             map <City,City_node> cities;
             unordered_set <City> research_stations;
+            unordered_set <Color> cures;
             Board();
-            City_node& operator[](City c); 
+            int& operator[](City c); 
             bool is_clean();
- 
-    };
-    ostream& operator<<(ostream& out, Board b); // print Board type
+            void remove_cures();
+            friend ostream& operator<<(ostream& out, Board &b); // print Board type
+    };                
 
-    ostream& operator<<(ostream& out, City_node c); // print City_node type
-                
-    
-                
-
-    }
+}

@@ -8,10 +8,9 @@ using namespace std;
 
 namespace pandemic{
     enum Color{Yellow, Blue, Black, Red, Last};
-       /* public:
-            static string Yellow;
-            static string Blue;
-            static string Black;
-            static string Red;
-    };*/
+       
+    inline string ColorToString(Color num) {
+    return (num == 0) ? "Black": (num == 1) ? "Blue": (num == 2) ? "Red": "Yellow";
+    }
+    
 }

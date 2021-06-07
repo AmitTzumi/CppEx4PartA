@@ -10,9 +10,9 @@ using namespace std;
 namespace pandemic{
     class Scientist : public Player{
         public:
-        Scientist(Board b, City c, int level){
-            
-        }
-
+        int param;
+        Scientist(Board& b, City c, int level);
+        string role();
+        Player& discover_cure(Color c);
     };
 }
